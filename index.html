@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Skincare Hydration Predictor (NIO + ONNX)</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+
+<h1>Skincare Hydration Predictor</h1>
+<p>Enter skincare ingredient percentages and estimate hydration score (0–100).</p>
+
+<div class="container">
+  
+  <label>Hyaluronic Acid (%)</label>
+  <input id="hyal" type="number" min="0" max="5" step="0.1" value="1.0">
+
+  <label>Niacinamide (%)</label>
+  <input id="niac" type="number" min="0" max="10" step="0.1" value="2.0">
+
+  <label>Retinol (%)</label>
+  <input id="ret" type="number" min="0" max="2" step="0.05" value="0.2">
+
+  <label>Vitamin C (%)</label>
+  <input id="vitc" type="number" min="0" max="25" step="0.5" value="10">
+
+  <label>Fragrance Free?</label>
+  <select id="frag">
+    <option value="1">Yes (Fragrance-Free)</option>
+    <option value="0">No (Has Fragrance)</option>
+  </select>
+
+  <label>Price per oz ($)</label>
+  <input id="price" type="number" min="5" max="80" step="1" value="20">
+
+  <button onclick="runModel()">Predict Hydration</button>
+
+  <h2 id="result">Prediction: --</h2>
+  <pre id="debug"></pre>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
