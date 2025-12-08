@@ -1,4 +1,4 @@
---------Skincare Hydration Prediction-------------
+Skincare Hydration Prediction
 
 This project builds a machine learning model that predicts skin hydration score (0–100) based on common skincare ingredients.
 It includes:
@@ -7,7 +7,8 @@ It includes:
 - A full NIO (Neural Input Optimization) module that "reverse engineers" ingredient values to reach a desired hydration level
 - A clean interactive web UI built with HTML+ CSS + JavaScript + ONNX Runtime Web
 
------Project Overview-------
+Project Overview
+
 Goal:
 Use real skincare product ingredient data to:
 
@@ -21,7 +22,7 @@ Use real skincare product ingredient data to:
 
 - Find ingredient combinations that achieve a target hydration level
 
------Dataset-------
+Dataset
 
 Source:
 Kaggle — Skincare Products & Ingredients
@@ -57,7 +58,7 @@ Beginner-Friendly Explanation of Each Ingredient
 Below we explain what each ingredient does, what typical safe ranges are, and how your example values fit into those ranges.
 Everything is written in plain, simple language—no chemistry background needed.
 
-------1. Hyaluronic Acid (%)----------
+1. Hyaluronic Acid (%)
 What it is:Hyaluronic Acid (often called “HA”) is a hydration magnet.
 It pulls water into the skin and keeps it there, like a sponge.
 
@@ -71,7 +72,7 @@ How the model uses it:
 Higher HA % → higher predicted hydration score.
 But returns start to level off after ~1%.
 
------2. Niacinamide (%)--------
+2. Niacinamide (%)
 What it is: Niacinamide is a form of Vitamin B3.
 It helps:
 Strengthen the skin barrier
@@ -86,7 +87,7 @@ Typical range:
 How the model uses it:
 More niacinamide increases hydration effects up to a point.
 
--------3. Retinol (%)-------
+3. Retinol (%)
 What it is: Retinol is a Vitamin A derivative.
 It improves:
 Skin renewal
@@ -111,7 +112,7 @@ Typical range:
 How the model uses it:
 Vitamin C interacts with Hyaluronic Acid to increase hydration in morning routines.
 
---------5. Fragrance Free?--------
+5. Fragrance Free?
 What this means: The product contains added fragrance.
 
 Why this matters:
@@ -127,7 +128,7 @@ How the model uses it:
 Fragrance = lower predicted hydration score
 (Because irritation works against moisture retention.)
 
-------6. Price per oz ($)------------
+6. Price per oz ($)
 What “price per oz” means: This is the cost for one ounce of product.
 
 It makes different products comparable.
@@ -152,7 +153,7 @@ Price has a small positive effect:
 - The model treats price mainly as a weak signal
 - Price per oz exists in the model because hydration correlates slightly with quality and ingredient density.
 
-----Model Architecture-----
+Model Architecture
 
 Three models were evaluated:
 
@@ -164,7 +165,7 @@ MLP Large (128 → 64 → 32 → 1)
 
 The best model (highest validation R²) is chosen automatically and exported to ONNX. 
 
-------Training Results-------
+Training Results
 
 The model is evaluated on:
 
@@ -176,7 +177,7 @@ The highest-performing model was then saved as:
 
 "skincare_regression.onnx"
 
-------Neural Input Optimization (NIO)-------
+Neural Input Optimization (NIO)
 
 This model supports reverse prediction:
 
